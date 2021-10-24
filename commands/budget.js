@@ -30,7 +30,7 @@ exports.budgetNotifier = ({ bot, notifyChannel }) => {
       bot.channels.get(notifyChannel).send(`New votes:
         Current votes: yes: ${yes}, no: ${no}, abstain: ${abstain}
         Previous votes: yes: ${lastYes}, no: ${lastNo}, abstain: ${lastAbstain}
-        Change in votes: yes: ${netYes}, no: ${netNo}, abstain: ${netAbstain}
+        Changed votes: yes: ${netYes}, no: ${netNo}, abstain: ${netAbstain}
       `);
       lastYes = yes;
       lastNo = no;
