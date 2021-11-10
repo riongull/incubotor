@@ -5,8 +5,8 @@ require('http')
   .createServer((_, s) => s.end('Up\n'))
   .listen(8080);
 
-const { blockResponder, blockNotifier } = require('./commands/blocks');
-const { budgetResponder, budgetNotifier } = require('./commands/budget');
+const { incubatorTxNotifier, incubatorTxResponder } = require('./commands/transactions');
+// const { votesResponder, votesNotifier } = require('./commands/budget');
 
 const token = process.env.DISCORD_BOT_TOKEN;
 const notifyChannel = process.env.DISCORD_NOTIFY_CHANNEL;
@@ -19,13 +19,13 @@ bot.on('ready', () => {
 
 bot.on('message', (msg) => {
   if (!msg.isMentioned(bot.user.id)) return;
-  blockResponder({ msg, keywords: ['latest', 'block'] });
-  budgetResponder({ msg, keywords: ['budget', 'votes'] });
+  incubatorTxResponder({ msg, keywords: ['incubator', 'balance'] });
+  // votesResponder({ msg, keywords: ['votes'] });
 });
 
 setInterval(() => {
-  blockNotifier({ bot, notifyChannel });
-  budgetNotifier({ bot, notifyChannel });
+  incubatorTxNotifier({ bot, notifyChannel });
+  // votesNotifier({ bot, notifyChannel });
 }, 10000);
 
 bot.login(token);

@@ -13,5 +13,6 @@ module.exports = {
   ignorePatterns: ['_scratch/'],
   rules: {
     'no-console': 'off',
+    'prefer-destructuring': 'off',
   },
 };
