@@ -19,7 +19,7 @@ bot.on('ready', () => {
 
 bot.on('message', (msg) => {
   if (!msg.isMentioned(bot.user.id)) return;
-  incubatorTxResponder({ msg, keywords: ['incubator', 'balance'] });
+  incubatorTxResponder({ msg, keywords: ['incubator', 'account', 'data', 'balance', 'address'] });
   // votesResponder({ msg, keywords: ['votes'] });
 });
 

@@ -10,10 +10,10 @@ const getIncubatorAddressData = async () => {
   return {
     raw: incubatorData,
     summary: {
-      tranactionCount: incubatorData.txAppearances,
-      address: incubatorData.address,
+      address: incubatorData.addrStr,
       balance: incubatorData.balance,
       unconfirmedBalance: incubatorData.unconfirmedBalance,
+      tranactionCount: incubatorData.txAppearances,
       mostRecentTx: incubatorData.transactions[0],
     },
   };
